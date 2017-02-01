@@ -67,7 +67,8 @@ var meetupRequest = function (){
 
     var checkAmountEvents = function() {
         $('#sidebar').prepend(
-            '<br>' + '<br>' + '<p id="events-found">' + (gatheredEvents.length + 1) + ' gatherings found in your area!' +'</p>'
+            '<br>' + '<br>' + '<p id="events-found">' + (gatheredEvents.length + 1)
+            + ' gatherings found in your area!' +'</p>'
         );
     }
 
@@ -81,7 +82,7 @@ var meetupRequest = function (){
             for(var i=0; i < data.results.length; i++) {
 
                 if(data.results[i].venue === undefined) {
-                    console.log('-----------------------------------------');
+                    // console.log('-----------------------------------------');
                     // $('#sidebar').append(
                     //     '<article class=' + '"results-box">' +
                     //     '<h2>' + (i + 1) + '.' + '</h2>' +
@@ -98,14 +99,16 @@ var meetupRequest = function (){
                     console.log('Object ' + [i] + ' successfully added');
 
                     $('#sidebar').append(
-                        '<article data-id=' + i + ' class=' + '"results-box">' +
-                        '<hr>' + '<br/>' +
-                        '<h2 class="number">' + (i + 1) + '.' + '</h2>' +
-                        '<h3>' + data.results[i].name + '</h3>' +
-                        '<h4>' + data.results[i].venue.name + '</h4>' +
-                        '<br />' +
-                        '<button id="save-event-button">Save</button>' +
-                        '</article>'
+                        '<form class="Events">' +
+                            '<article data-id=' + i + ' class=' + '"results-box">' +
+                                '<hr>' + '<br/>' +
+                                '<h2 class="number">' + (i + 1) + '.' + '</h2>' +
+                                '<h3>' + data.results[i].name + '</h3>' +
+                                '<h4>' + data.results[i].venue.name + '</h4>' +
+                                '<br />' +
+                                '<button id="save-event-button">Save</button>' +
+                            '</article>' +
+                        '</form>'
                     );
 
                 } // end of if statement
